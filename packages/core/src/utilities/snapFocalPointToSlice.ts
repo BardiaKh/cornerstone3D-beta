@@ -52,6 +52,8 @@ export default function snapFocalPointToSlice(
   // Increment the slice number by deltaFrames.
   frameIndex += deltaFrames;
 
+  console.log('snapFocal', frameIndex, spacingInNormalDirection);
+
   // Clamp sliceNumber to volume.
   if (frameIndex > steps) {
     frameIndex = steps;
@@ -60,7 +62,7 @@ export default function snapFocalPointToSlice(
   }
 
   // Dolly the focal towards to the correct frame focal point.
-  const newSlicePosFromMin = frameIndex * spacingInNormalDirection;
+  const newSlicePosFromMin = (frameIndex + 1) * spacingInNormalDirection;
 
   newFocalPoint = <Point3>[
     newFocalPoint[0] + viewPlaneNormal[0] * newSlicePosFromMin,

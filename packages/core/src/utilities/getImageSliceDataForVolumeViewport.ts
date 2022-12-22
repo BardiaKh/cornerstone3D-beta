@@ -39,10 +39,11 @@ function getImageSliceDataForVolumeViewport(
   const { min, max, current } = sliceRange;
 
   // calculate number of steps from min to max with current normal spacing in direction
-  const numberOfSlices = Math.round((max - min) / spacingInNormalDirection) + 1;
+  const numberOfSlices = Math.round((max - min) / spacingInNormalDirection);
 
   // calculate the imageIndex based on min, max, current
   let imageIndex = ((current - min) / (max - min)) * numberOfSlices;
+  console.log('imageSliceData', imageIndex, max, min, spacingInNormalDirection);
   imageIndex = Math.floor(imageIndex);
 
   // Clamp imageIndex
